@@ -1,0 +1,318 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+}
+
+label {
+  display: block;
+  margin-bottom: 1px;
+  width: 100%;
+  padding: 12px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 2px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container_vertical_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment {
+  margin-top: 20px;
+  width: 33%;
+  margin-left: 5%;
+}
+
+.container_vertical_left {
+  flex-direction: column;
+}
+
+.container_vertical_left-150 {
+  flex-direction: column;
+}
+
+.container_vertical_left-2 {
+  flex-direction: column;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mr-80 {
+  margin-right: 80px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.table_border {
+  width: 70%;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.flash {
+  color: red;
+}
+
+.grid-container {
+  display: inline-grid;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-columns: 1fr 2fr;
+}
+
+.grid-container input,
+textarea {
+  width: 100%;
+  border: 3px solid black;
+}
+
+.one {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  margin-right: 50px;
+}
+
+.two {
+  grid-column-start: 2;
+  grid-column-end: 2;
+
+}
+
+
+.number {
+  position: relative;
+  float: right;
+  border: solid #d31a1a 1px;
+  border-radius: 100%;
+  color: white;
+  font-weight: bold;
+  width: 18px;
+  text-align: center;
+  right: -15px;
+  top: -25px;
+  background-color: #d31a1a;
+}
+
+
+
+
+
+.button {
+  background-color: #7f7f7f;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  width: auto;
+
+}
+
+.button2 {
+  background-color: #d31a1a;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: -5px;
+  cursor: pointer;
+  border-radius: 12px;
+  width: auto;
+}
+
+.button-shop {
+  background-color: #7f7f7f;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.button-checkout {
+  background-color: #7f7f7f;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.cart {
+  width: 50px;
+  margin: -10px;
+  margin-right: -30px;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 8px 0 12px;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 8px 0 12px 35%;
+}
+
+.title_chk {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 8px 0 12px 11%;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  h1,
+  .title {
+    font-size: 21px;
+  }
+
+
+  .table-head {
+    display: none;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 13px;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .button-shop {
+    background-color: #7f7f7f;
+    border: none;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 12px;
+    flex: 1;
+  }
+
+  .button-checkout {
+    background-color: #7f7f7f;
+    border: none;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 12px;
+    flex: 1;
+  }
+}

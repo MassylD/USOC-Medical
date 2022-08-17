@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cart - Red Belt</title>
+    <link href="static/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT TITLE -->
+
+        <!-- BUTTON BLOCK -->
+        <div class="row">
+            <h1>Welcome {{ user_info.first_name }} {{ user_info.last_name }}!</h1>
+
+            <!-- STYLE REPORT BUTTON TO RIGHT -->
+
+            <div style="display: flex; gap: 50px">
+                <div>
+                    <p class="number">{{ items_count}}</p>
+                    <a href="cart">
+                        <img class="cart" src="static/cart.png">
+                    </a>
+                </div>
+                <!-- LOGOUT BUTTON -->
+                <a href="/logout">
+                    <input class="button" type="button" value="Logout">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+
+        <div>
+            <h1 style="padding-top: 20px; padding-bottom: 20px">Cart</h1>
+        </div>
+
+        <div class="row" style="justify-content: flex-end; gap: 10px;">
+
+            <a class="button-shop" href="catalog">
+                Shop
+            </a>
+
+            {% if items_count > 0 %}
+            <a href="checkout/{{ cart.id }}" class="button-checkout">
+                Checkout
+            </a>
+            {% endif %}
+
+            <a href="cart-history" class="button-shop">
+                History
+            </a>
+
+        </div>
+
+    </div>
+
+    <!--Tableau-->
+
+    <table>
+
+        <h4>Created on : {{ cart.created }}</h4>
+
+        <tr class="table-head">
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Software</th>
+            <th>Option</th>
+            <th>Remove</th>
+        </tr>
+
+
+
+        {% for c in cart_catalog %}
+
+        <tr>
+            <td data-label="Brand">{{ c.catalog.brand }}</td>
+            <td data-label="Model">{{ c.catalog.model }}</td>
+            <td data-label="Software">{{ c.catalog.software }}</td>
+            <td data-label="Option">{{ c.catalog.option }}</td>
+            <td data-label="Remove">
+                <a class="button2" href="/cart/{{ c.catalog.id }}/delete">
+                    X
+                </a>
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

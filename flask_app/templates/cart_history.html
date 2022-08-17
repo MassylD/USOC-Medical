@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cart - Red Belt</title>
+    <link href="static/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT TITLE -->
+
+        <!-- BUTTON BLOCK -->
+        <div class="row">
+            <h1>Welcome {{ user_info.first_name }} {{ user_info.last_name }}!</h1>
+
+            <!-- STYLE REPORT BUTTON TO RIGHT -->
+
+            <div style="display: flex; gap: 50px">
+                <div>
+                    <p class="number">{{ items_count }}</p>
+                    <a href="cart">
+                        <img class="cart" src="static/cart.png">
+                    </a>
+                </div>
+                <!-- LOGOUT BUTTON -->
+                <a href="/logout">
+                    <input class="button" type="button" value="Logout">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div>
+            <h1 style="padding-top: 20px; padding-bottom: 20px">Cart History</h1>
+        </div>
+
+        <div class="row" style="justify-content: flex-end; gap: 10px;">
+
+            <a class="button-shop" href="catalog">
+                Shop
+            </a>
+        </div>
+
+    </div>
+
+    <!--Tableau-->
+
+    <table>
+        <tr class="table-head">
+            <th>Creation Date</th>
+            <th>Checkout Date</th>
+            <th>Card Number</th>
+            <th>Item Count</th>
+            <th>Items</th>
+        </tr>
+
+
+
+        {% for ch in cart_history %}
+
+        <tr>
+            <td data-label="Created">{{ ch.created }}</td>
+            <td data-label="Date Checkout">{{ ch.date_checkout }}</td>
+            <td data-label="Card Number">{{ ch.card_number }}</td>
+            <td data-label="Items Count">{{ ch.items_number }}</td>
+            <td data-label="Items">
+                {% for i in ch.items %}
+                {{ i.catalog.brand }}
+                {{ i.catalog.model }}
+                {{ i.catalog.software }}
+                {{ i.catalog.option }}
+                {% endfor %}
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Dashboard - Red Belt</title>
+    <link href="/static/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT TITLE -->
+
+        <!-- BUTTON BLOCK -->
+        <div class="row">
+            <h1>Welcome {{ user_info.first_name }} {{ user_info.last_name }}!</h1>
+
+            <!-- STYLE REPORT BUTTON TO RIGHT -->
+
+            <div style="display: flex; gap: 50px">
+                <div>
+                    <p class="number">{{items_count}}
+                    </p>
+                    <a href="/cart">
+                        <img class="cart" src="/static/cart.png">
+                    </a>
+                </div>
+                <!-- LOGOUT BUTTON -->
+                <!--    MODIFIE LE HREF-->
+                <a href="/logout">
+                    <input class="button" type="button" value="Logout">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div class="row">
+
+        <div>
+            <h1 style="padding-top: 20px; padding-bottom: 20px">Checkout</h1>
+        </div>
+
+
+    </div>
+
+    <div style="margin-left: 20px">
+        {% with messages = get_flashed_messages(category_filter=["checkout"]) %} {% if messages %}
+        <ul class="flash">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+    </div>
+    
+    <form action="/checkout/{{ cart.id }}" method="post">
+
+        <div class="form_container">
+            <div class="column">
+
+                <label for="card_number">Card Number</label>
+
+                <label for="expiration_date">Expiry Date</label>
+
+                <label for="security_code">Security Code</label>
+
+            </div>
+            <div class="column">
+
+                <input type="text" id="card_number" name="card_number">
+
+                <input type="text" id="expiration_date" name="expiration_date">
+
+                <input type="password" id="security_code" name="security_code">
+
+            </div>
+
+        </div>
+        <div class="payment">
+            <input class="button" type="submit" value="Make the payment">
+        </div>
+
+    </form>
+</body>
+
+</html>

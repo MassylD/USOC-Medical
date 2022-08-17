@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>Login Registration - Red Belt</title>
+    <link rel="stylesheet" href="../static/authentication.css">
+</head>
+
+<div class="container">
+
+    <form action="/register" method="post">
+
+        <h2>Register</h2>
+
+        {% with messages = get_flashed_messages(category_filter=["register"]) %}
+        {% if messages %}
+        <ul class="flash">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="form_container">
+            <div>
+
+                <label for="first_name">First Name</label>
+
+                <label for="last_name">Last Name</label>
+
+                <label for="email">Email</label>
+
+                <label for="password">Password</label>
+
+                <label for="confirm_password">Confirm password</label>
+
+            </div>
+            <div>
+                {% if register_data %}
+                <input type="text" id="first_name" name="first_name" value="{{ register_data.first_name }}">
+                {% else %}
+                <input type="text" id="first_name" name="first_name">
+                {% endif %}
+
+                {% if register_data %}
+                <input type="text" id="last_name" name="last_name" value="{{ register_data.last_name }}">
+                {% else %}
+                <input type="text" id="last_name" name="last_name">
+                {% endif %}
+
+                {% if register_data %}
+                <input type="text" id="email" name="email" value="{{ register_data.email }}">
+                {% else %}
+                <input type="text" id="email" name="email">
+                {% endif %}
+
+                <input type="password" id="password" name="password">
+
+                <input type="password" id="confirm_password" name="confirm_password">
+
+                <input type="submit" value="Register">
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <form action="/login" method="post">
+        <h2>Login</h2>
+        {% with messages = get_flashed_messages(category_filter=["login"]) %}
+        {% if messages %}
+        <ul class="flash">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="form_container">
+
+            <div>
+                <label for="login_email">Email</label>
+                <label for="login_password">Password</label>
+
+            </div>
+
+            <div>
+                {% if login_data %}
+                <input type="email" id="login_email" name="email" value="{{ login_data.email }}">
+                {% else %}
+                <input type="email" id="login_email" name="email">
+                {% endif %}
+                <input type="password" id="login_password" name="password">
+                <input type="submit" value="Login">
+
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</html>

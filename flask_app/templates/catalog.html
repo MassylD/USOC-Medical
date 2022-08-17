@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Dashboard - Red Belt</title>
+    <link href="static/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- LEFT TITLE -->
+
+        <!-- BUTTON BLOCK -->
+        <div class="row">
+            <h1>Welcome {{ user_info.first_name }} {{ user_info.last_name }}!</h1>
+
+            <!-- STYLE REPORT BUTTON TO RIGHT -->
+
+            <div style="display: flex; gap: 50px">
+                <div>
+                    <p class="number">{{ items_count }}</p>
+                    <a href="cart">
+                        <img class="cart" src="static/cart.png">
+                    </a>
+                </div>
+
+                <!-- LOGOUT BUTTON -->
+                <a href="/logout">
+                    <input class="button" type="button" value="Logout">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div class="row">
+
+        <div>
+            <h1 style="padding-top: 20px; padding-bottom: 20px">Shop</h1>
+        </div>
+
+    </div>
+
+    <!-- BODY CONTAINER -->
+    <!-- TITLE -->
+    <table>
+        <tr class="table-head">
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Software</th>
+            <th>Option</th>
+            <th>Select</th>
+        </tr>
+
+        {% for c in catalog %}
+
+        <tr>
+            <td data-label="Brand">{{ c.brand }}</td>
+            <td data-label="Model">{{ c.model }}</td>
+            <td data-label="Software">{{ c.software }}</td>
+            <td data-label="Option">{{ c.option }}</td>
+            <td data-label="Select">
+                {% if not c.exists %}
+                <form method="POST" action="add_to_cart">
+
+                    <input class="button" type="submit" value="Add">
+                    <input type="hidden" name="id_item" value="{{ c.id }}">
+
+                </form>
+
+                {% else %}
+                <div style="color: green; opacity: 70%; padding-top: 10px; padding-bottom: 10px;">
+                    Already in the cart
+                </div>
+                {% endif %}
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+</body>
+
+</html>
